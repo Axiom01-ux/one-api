@@ -85,9 +85,9 @@ func openPostgreSQL(dsn string) (*gorm.DB, error) {
 	common.UsingPostgreSQL = true
 	return gorm.Open(postgres.New(postgres.Config{
 		DSN:                  dsn,
-		PreferSimpleProtocol: true, // disables implicit prepared statement usage
+		PreferSimpleProtocol: true,
 	}), &gorm.Config{
-		PrepareStmt: true, // precompile SQL
+		PrepareStmt: false,
 	})
 }
 
